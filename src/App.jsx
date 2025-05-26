@@ -1,35 +1,88 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Suspense, lazy } from "react";
+import { HashRouter, Route, Routes } from "react-router-dom";
+import NavFixed from "./components/NavFixed";
+import Footer from "./components/Footer";
+import ErrorBoundary from "./ErrorBoundary";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+
+  <div className="d-flex flex-column min-vh-100">
+    <NavFixed />
+    <main className="flex-grow-1">
+      {children}
+    </main>
+    <Footer />
+  </div>
+
+
+  /** 
+const GraphicsLayout = ({ children }) => (
+  <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <NavFixed />
+    <Box sx={{ flexGrow: 1 }}>
+      {children}
+    </Box>
+  </Box>
+);
+*/
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <HashRouter basename="/scroll/">
+        <Suspense fallback={<div>Loading...</div>}>
+          <ErrorBoundary>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <DefaultLayout>
+                    <HomePage />
+                  </DefaultLayout>
+                }
+              />
+              <Route
+                path="/home"
+                element={
+                  <DefaultLayout>
+                    <HomePage />
+                  </DefaultLayout>
+                }
+              />
+              <Route
+                path="*"
+                element={
+                  <DefaultLayout>
+                    <NotFound />
+                  </DefaultLayout>
+                }
+              />
+            </Routes>
+          </ErrorBoundary>
+        </Suspense>
+      </HashRouter>
+    </div>
+  );
 }
 
-export default App
+function NotFound() {
+  console.error("Page not found!");
+  return <div />;
+}
+
+export default App;
+
+/**
+ *              <Route path="/about" element={<DefaultLayout><AboutPage /></DefaultLayout>} />
+              <Route path="/contact" element={<DefaultLayout><ContactPage /></DefaultLayout>} />
+              <Route path="/resume" element={<DefaultLayout><ResumePage /></DefaultLayout>} />
+              <Route path="/portfolio" element={<DefaultLayout><PortfolioPage /></DefaultLayout>} />
+              <Route path="/graphics" element={<GraphicsLayout><GraphicsPage /></GraphicsLayout>} />
+              <Route path="/samples" element={<DefaultLayout><SamplesPage /></DefaultLayout>} />
+              <Route path="/server" element={<DefaultLayout><ServerPage /></DefaultLayout>} />
+              <Route path="/newsletter-samples" element={<Navigate to="/graphics#newsletter" replace />} />
+              <Route path="*" element={<DefaultLayout><NotFound /></DefaultLayout>} />
+ */
