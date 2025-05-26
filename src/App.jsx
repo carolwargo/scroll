@@ -9,57 +9,16 @@ import "./App.css";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 
-  <div className="d-flex flex-column min-vh-100">
-    <NavFixed />
-    <main className="flex-grow-1">
-      {children}
-    </main>
-    <Footer />
-  </div>
-
-
-  /** 
-const GraphicsLayout = ({ children }) => (
-  <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-    <NavFixed />
-    <Box sx={{ flexGrow: 1 }}>
-      {children}
-    </Box>
-  </Box>
-);
-*/
-
 function App() {
   return (
     <div className="App">
-      <HashRouter basename="/scroll/">
+      <HashRouter basename="">
         <Suspense fallback={<div>Loading...</div>}>
           <ErrorBoundary>
             <Routes>
-              <Route
-                path="/"
-                element={
-                  <DefaultLayout>
-                    <HomePage />
-                  </DefaultLayout>
-                }
-              />
-              <Route
-                path="/home"
-                element={
-                  <DefaultLayout>
-                    <HomePage />
-                  </DefaultLayout>
-                }
-              />
-              <Route
-                path="*"
-                element={
-                  <DefaultLayout>
-                    <NotFound />
-                  </DefaultLayout>
-                }
-              />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/home" element={<HomePage />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </ErrorBoundary>
         </Suspense>
