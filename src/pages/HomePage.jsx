@@ -1,9 +1,9 @@
-import React from 'react';  
+import '../App.css'; // Importing the CSS file for styling
 
 const HomePage = () => {    
      
 return (        
-        <div className="home-page">            
+        <div className="page">            
             <h1>Welcome to the Home Page</h1>            
             <p>This is a simple React application using Vite.</p>            
             <p>Click on the links below to learn more:</p>            

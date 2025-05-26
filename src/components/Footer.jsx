@@ -12,7 +12,8 @@ export default function App() {
   };
 
   return (
-    <div className="footer" id="footer" style={{ fontFamily: "Raleway", width: "100%", margin: 0, padding: 0 }}>
+    <div className="footer" id="footer" >
+      <MDBContainer fluid className="p-0 m-0">
       <MDBFooter className="bg-black w-100 text-light">
         <section className="text-center p-3">
           <MDBContainer fluid className="mt-5 text-center text-md-start">
@@ -113,6 +114,7 @@ export default function App() {
 
 
       </MDBFooter>
+      </MDBContainer>
     </div>
   );
 }

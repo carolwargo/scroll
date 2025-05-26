@@ -3,6 +3,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import NavFixed from "./components/NavFixed";
 import Footer from "./components/Footer";
 import ErrorBoundary from "./ErrorBoundary";
+import PageLayout from "./Layouts/PageLayout";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -15,11 +16,27 @@ function App() {
       <HashRouter basename="">
         <Suspense fallback={<div>Loading...</div>}>
           <ErrorBoundary>
+            <NavFixed />
             <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/home" element={<HomePage />} />
+              <Route
+                path="/"
+                element={
+                  <PageLayout>
+                    <HomePage />
+                  </PageLayout>
+                }
+              />
+              <Route
+                path="/home"
+                element={
+                  <PageLayout>
+                    <HomePage />
+                  </PageLayout>
+                }
+              />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <Footer />
           </ErrorBoundary>
         </Suspense>
       </HashRouter>
@@ -29,10 +46,12 @@ function App() {
 
 function NotFound() {
   console.error("Page not found!");
-  return <div />;
+  return <div style={{ padding: "2rem", textAlign: "center" }}>Page Not Found</div>;
 }
 
 export default App;
+
+
 
 /**
  *              <Route path="/about" element={<DefaultLayout><AboutPage /></DefaultLayout>} />
