@@ -82,16 +82,17 @@ const HomePage = () => {
             <a
               className="nav-link"
               href="#item-1"
-              onClick={(e) => handleNavClick(e, 'item-2')}
+              onClick={(e) => handleNavClick(e, 'item-1')}
             >
-              Email Campaigns
+                Campaign Diagram
+            
             </a>
                    <a
               className="nav-link"
               href="#item-2"
               onClick={(e) => handleNavClick(e, 'item-2')}
             >
-             Campaign Diagram
+             Email Campaigns
             </a>
             <a
               className="nav-link"
@@ -141,16 +142,17 @@ const HomePage = () => {
             <a
               className="nav-link"
               href="#item-1"
-              onClick={(e) => handleNavClick(e, 'item-2')}
+              onClick={(e) => handleNavClick(e, 'item-1')}
             >
-              Email Campaigns
+              Campaign Diagram
             </a>
                              <a
               className="nav-link"
               href="#item-2"
               onClick={(e) => handleNavClick(e, 'item-2')}
             >
-             Campaign Diagram
+                Email Campaigns
+           
             </a>
             <a
               className="nav-link"
@@ -204,7 +206,7 @@ const HomePage = () => {
         </div>
         {/* Email Campaigns */}
         <div id="item-2" className="container pb-4">
-          <h2>Email Campaigns & Newsletters</h2>
+          <h1>Email Campaigns & Newsletters</h1>
           <p>
             Unified Graphics-Maximize your brand’s visibility with multi-platform
             marketing graphics, ensuring consistent and captivating visuals across
@@ -216,7 +218,7 @@ const HomePage = () => {
 
         {/* Infographics */}
         <div id="item-3" className="container py-4">
-          <h2>Infographics</h2>
+          <h1>Infographics</h1>
           <p>
             Visual Insights that Illuminate- Dive into our meticulously crafted
             infographics that transform complex data into compelling visual
@@ -227,7 +229,7 @@ const HomePage = () => {
 
         {/* Social Media Campaigns */}
         <div  id="item-4" className="container py-4">
-          <h2>Social Media Campaigns</h2>
+          <h1>Social Media Campaigns</h1>
           <p>
             Enhance your social media presence with our vibrant and impactful
             graphics, tailored to catch the eye and engage your followers across
@@ -238,7 +240,7 @@ const HomePage = () => {
 
         {/* Sports Media */}
         <div id="item-5" className="container py-4">
-          <h2>Sports Media</h2>
+          <h1>Sports Media</h1>
           <p>
             Enhance your social media presence with our vibrant and impactful
             graphics, tailored to catch the eye and engage your followers across

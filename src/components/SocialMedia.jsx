@@ -25,12 +25,7 @@ const [currentOpenIndex, setCurrentOpenIndex] = useState(0);
       index: currentFruitIndex,
       handler: handleFruitImageClick,
     },
-      {
-      name: "Greenfood",
-        images: socialDataTemplate.greenfoodImages,
-        index: currentGreenFoodIndex,
-        handler: handleGreenFoodImageClick,
-    },
+
     {
       name: "Food",
       images: socialDataTemplate.foodImages,
