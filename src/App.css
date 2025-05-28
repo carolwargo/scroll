@@ -1,26 +1,211 @@
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
-.App {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+html {
+  scroll-behavior: smooth;
 }
 
+/* START PAGE*/
 .page {
   width: 100%;
   min-height: 100vh;
   display: flex;
-  margin-top: 3.6rem;
-  padding: 0 1.5rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* keep vertical scrollable content aligned to top */
-  background-color: blueviolet;
+}
+/* START PAGE*/
+
+/* START SMALL QUERY PAGE*/
+@media (max-width: 767.98px) {
+  .page {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+}
+/* END SMALL QUERY*/
+
+/* START LARGE QUERY*/
+@media (min-width: 768px) {
+  .page {
+    flex-direction: row;
+    justify-content: space-between; /* Distribute space between columns */
+    align-items: flex-start; /* Align to top */
+  }
+}
+/* END LARGE QUERY*/
+
+/* START SIDEBAR*/
+/* Sidebar */
+#navbar-example3 {
+  width: 320px;
+  height: 100vh;  
+  position: sticky;
+  top: 0px; /* Stick below NavFixed */
+  height: calc(100vh - 60px); /* Account for NavFixed height */
+  z-index: 1200;
+  font-family: "Raleway", sans-serif;
+  overflow-y: auto;
+  
+}
+
+@media (min-width: 768px) {
+  #navbar-example3 {
+    margin-right: 1rem; /* Spacing to main content */
+      background-color: #4a016c; /* Dark purple background */
+      height: 100vh; /* Full height for larger screens */ 
+      position: sticky; /* Keep sidebar fixed on scroll */
+  }
 }
 
 
+/* Sidebar brand */
+#navbar-example3 .navbar-brand {
+  font-size: 1.5rem;
+  letter-spacing: -0.1rem;
+  font-weight: bold;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  margin-left: 10px; /* Reduced margin for tighter spacing */
+}
+
+/* Sidebar nav links */
+#navbar-example3 .nav-link {
+  color: #dddddd;
+  margin: 5px 10px; /* Reduced margin for tighter spacing */
+  font-size: 1rem; /* Adjusted font size for better readability */
+}
+#navbar-example3 .nav-link.active {
+  color: white;
+  background-color: #8103bb; /* Highlight active link */
+}
+#navbar-example3 .nav-link:hover {
+  color: white;
+  background-color: #d887fe; /* Highlight on hover */
+}
+/* END SIDEBAR*/
+
+/* START OffCanvas SIDEBAR Mobile*/
+#sidebarOffcanvas {
+  background-color: #4a016c; /* Dark purple background */
+  width: 320px; /* Match sidebar width */
+  z-index: 2000; /* Ensure it appears above other content */
+}
+
+#sidebarOffcanvas .offcanvas-title {
+  color: white;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  margin-left: 10px; /* Reduced margin for tighter spacing */
+  margin-top: 10px;
+}
+
+#sidebarOffcanvas .nav-link {
+  color: white;
+  margin: 5px 0px; /* Reduced margin for tighter spacing */
+}
+
+#sidebarOffcanvas .nav-link.active {
+  color: rgb(30, 30, 30);
+  background-color: #d887fe;
+}
+
+#sidebarOffcanvas .nav-link:hover {
+  color: white;
+  background-color: #d887fe; /* Highlight on hover */
+}
+
+/* END OffCanvas SIDEBAR */
+
+/* START SCROLL Main content */
+.scrollspy-example {
+  flex-grow: 1;
+  padding: 0.5rem 1rem; /* Reduced from 2rem for tighter spacing */
+}
+
+@media (min-width: 768px) {
+  .scrollspy-example {
+    max-width: 1325px;
+    margin-left: 2rem; /* Spacing from sidebar */
+    margin-top: 2rem; /* Spacing from top */
+  }
+}
+
+
+/* Mobile Toggle Block */
+.mobile-toggle-block {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #e3b0fa;
+  z-index: 1500; /* Above content, below NavFixed (assumed 1600) */
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 767.98px) {
+  .mobile-toggle-block {
+    display: flex; /* Show on mobile */
+  }
+}
+
+/* Toggle button */
+.scrollspy-example .btn.d-md-none {
+  position: fixed;
+  top: 6px;
+  left: 5px;
+  color: #4a016c;
+  padding: 0rem 0.4rem;
+  margin: 0;
+  z-index: 1500; /* Above content, below NavFixed (assumed 1600) */
+  border-radius: 4px;
+  font-family: "Raleway", sans-serif;
+}
+
+/* Ensure content clears fixed toggle */
+@media (max-width: 767.98px) {
+  .scrollspy-example {
+    padding-top: 50px; /* Space for fixed toggle */
+  }
+}
+
+/* Section headings */
+.scrollspy-example h2 {
+  color: #4a016c;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+  
+}
+
+/* Section paragraphs */
+.scrollspy-example p {
+  color: #333;
+  font-family: "Raleway", sans-serif;
+}
+
+/* Section headings */
+.scrollspy-example h4 {
+  color: #4a016c;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+}
+
+/* Section paragraphs */
+.scrollspy-example p {
+  color: #333;
+  font-family: "Raleway", sans-serif;
+}
+
+/* Email section specific styling */
+#item-2 p {
+  padding: 0;
+}

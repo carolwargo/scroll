@@ -1,7 +1,5 @@
 import { Suspense, lazy } from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
-import NavFixed from "./components/NavFixed";
-import Footer from "./components/Footer";
 import ErrorBoundary from "./ErrorBoundary";
 import PageLayout from "./Layouts/PageLayout";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -16,7 +14,6 @@ function App() {
       <HashRouter basename="">
         <Suspense fallback={<div>Loading...</div>}>
           <ErrorBoundary>
-            <NavFixed />
             <Routes>
               <Route
                 path="/"
@@ -36,7 +33,6 @@ function App() {
               />
               <Route path="*" element={<NotFound />} />
             </Routes>
-            <Footer />
           </ErrorBoundary>
         </Suspense>
       </HashRouter>
